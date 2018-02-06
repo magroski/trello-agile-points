@@ -3,7 +3,7 @@
 var t = TrelloPowerUp.iframe();
 
 // Elements with IDs are available as properties of `window`.
-window.estimate.addEventListener('submit', function(event){
+window.pointsForm.addEventListener('submit', function(event){
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
     t.set('card', 'shared', 'estimated', window.estimated.value)
