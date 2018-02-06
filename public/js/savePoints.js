@@ -6,7 +6,7 @@ var t = TrelloPowerUp.iframe();
 window.pointsForm.addEventListener('submit', function(event){
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
-    t.set('card', 'shared', 'estimated', window.estimated.value)
+    t.set('card', 'shared', 'estimated', window.estimated.value);
     return t.set('card', 'shared', 'consumed', window.consumed.value)
     .then(function(){
         t.closePopup();  
