@@ -18,9 +18,12 @@ TrelloPowerUp.initialize({
         }];
     },
     'card-badges': function(t, options){
-        return [{
-            icon: BLACK_ROCKET_ICON,
-            text: 3
-        }];
+        return t.get('card', 'shared', 'agilePoints')
+        .then(function(agilePoints){
+            return [{
+                icon: BLACK_ROCKET_ICON,
+                text: agilePoints.estimated+'/'+agilePoints.consumed
+            }];
+        });
     },
 });
