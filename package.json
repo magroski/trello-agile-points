@@ -1,0 +1,26 @@
+{
+    "name": "trello-agile-points",
+    "version": "1.0.0",
+    "description": "A Power-Up to add Planed/Spent points to cards",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.15.2",
+      "cors": "^2.8.1"
+    },
+    "engines": {
+      "node": "6.10.x"
+    },
+    "repository": {
+      "url": "https://github.com/magroski/trello-agile-points"
+    },
+    "license": "MIT",
+    "keywords": [
+      "node",
+      "glitch",
+      "express"
+    ]
+  }
+  
