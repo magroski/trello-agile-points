@@ -7,8 +7,10 @@ window.estimate.addEventListener('submit', function(event){
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
     t.set('card', 'shared', 'estimated', window.estimated.value)
-    t.set('card', 'shared', 'consumed', window.consumed.value)
-    t.closePopup();  
+    return t.set('card', 'shared', 'consumed', window.consumed.value)
+    .then(function(){
+        t.closePopup();  
+    });    
 });
 
 t.render(function(){
@@ -23,5 +25,5 @@ t.render(function(){
   .then(function(){
     t.sizeTo('#pointsForm').done();
   });
-  
+
 });
