@@ -17,4 +17,10 @@ TrelloPowerUp.initialize({
             }
         }];
     },
+    'card-badges': function(t, options){
+        return [{
+            icon: BLACK_ROCKET_ICON,
+            text: 3
+        }];
+    },
 });
