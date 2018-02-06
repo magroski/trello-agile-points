@@ -12,7 +12,7 @@ TrelloPowerUp.initialize({
             callback: function(t) {
                 return t.popup({
                     title: "Task points",
-                    url: 'points.html',
+                    url: './points.html',
                 });
             }
         }];
