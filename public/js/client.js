@@ -31,10 +31,12 @@ TrelloPowerUp.initialize({
 
                     if (agilePoints.consumed !== '') {
                         var consumedColor = 'orange';
-                        if (agilePoints.consumed < agilePoints.estimated) {
-                            consumedColor = 'green';
-                        } else if (agilePoints.consumed > agilePoints.estimated) {
-                            consumedColor = 'red';
+                        if(agilePoints.consumed !== '?') {
+                            if (agilePoints.consumed < agilePoints.estimated) {
+                                consumedColor = 'green';
+                            } else if (agilePoints.consumed > agilePoints.estimated) {
+                                consumedColor = 'red';
+                            }
                         }
                         badges.push({
                             icon : BLACK_ROCKET_ICON,
