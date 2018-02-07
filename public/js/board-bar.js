@@ -35,15 +35,23 @@ t.render(function () {
                 return Promise.all(listPromises);
             })
             .then(function (listsSummary) {
+                var width = 100 / listsSummary.length;
                 for (currentIndex in listsSummary) {
                     var currentSummary = listsSummary[currentIndex];
-                    var listsDiv = document.getElementById('agile-points-lists');
+                    var listsDiv       = document.getElementById('agile-points-lists');
 
-                    var newList       = document.createElement('div');
-                    newList.className = 'agile-list-summary';
-                    var newSpan       = document.createElement('span');
-                    newSpan.appendChild(document.createTextNode(currentSummary.name));
-                    newList.appendChild(newSpan);
+                    var newList         = document.createElement('div');
+                    newList.className   = 'agile-list-summary';
+                    newList.style.width = width + '%';
+
+                    var cardTitle = document.createElement('h1');
+                    cardTitle.appendChild(document.createTextNode(currentSummary.name));
+                    newList.appendChild(cardTitle);
+
+                    var newImage = document.createElement('img');
+                    newImage.src = './i/white-card.svg';
+                    newList.appendChild(newImage);
+
                     var newCounter = document.createElement('span');
                     newCounter.appendChild(document.createTextNode(currentSummary.consumed + '/' + currentSummary.estimated));
                     newList.appendChild(newCounter);

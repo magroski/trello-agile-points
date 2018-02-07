@@ -2,8 +2,8 @@
 
 var Promise = TrelloPowerUp.Promise;
 
-var DARK_CARD_ICON = './i/card-dark.svg';
-var CARD_ICON = './i/card.svg';
+var DARK_CARD_ICON = './i/dark-card.svg';
+var CARD_ICON = './i/white-card.svg';
 
 var calculateSprintPoints = function (t, options) {
     return t.boardBar({
