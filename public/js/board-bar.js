@@ -37,7 +37,7 @@ t.render(function () {
             })
             .then(function (listsSummary) {
                 console.log(listsSummary);
-                for (var summaryIndex = 0; summaryIndex < listsSummary.length; summaryIndex++) {
+                for (currentSummary in listsSummary) {
                     var currentSummary = listsSummary[summaryIndex];
                     console.log(currentSummary);
                     console.log(listsSummary);
