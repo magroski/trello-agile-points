@@ -33,10 +33,14 @@ t.render(function () {
                     listsSummary.push(listObject);
                 }
                 console.log(listsSummary);
+                return listsSummary;
+            })
+            .then(function (listsSummary) {
+                console.log(listsSummary);
                 for (var summaryIndex = 0; summaryIndex < listsSummary.length; summaryIndex++) {
                     var currentSummary = listsSummary[summaryIndex];
                     console.log(currentSummary);
-                    var listsDiv       = document.getElementById('agile-points-lists');
+                    var listsDiv = document.getElementById('agile-points-lists');
 
                     var newList       = document.createElement('div');
                     newList.className = 'agile-list-summary';
