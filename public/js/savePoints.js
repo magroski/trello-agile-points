@@ -7,7 +7,7 @@ var inputIsValid = function (value) {
         return true;
     }
 
-    return typeof (value * 1) === 'number';
+    return !isNaN(value);
 };
 
 // Elements with IDs are available as properties of `window`.
@@ -15,7 +15,7 @@ window.pointsForm.addEventListener('submit', function (event) {
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
     var estimatedValue = inputIsValid(window.estimated.value) ? window.estimated.value : '';
-    var consumedValue  = inputIsValid(window.consumed.value) ? window.consumed.value : '';
+    var consumedValue  = !isNaN(window.consumed.value) ? window.consumed.value : '';
     return t.set('card', 'shared', 'agilePoints', {estimated: estimatedValue, consumed: consumedValue})
             .then(function () {
                 t.closePopup();

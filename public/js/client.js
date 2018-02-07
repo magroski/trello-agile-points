@@ -29,27 +29,28 @@ TrelloPowerUp.initialize({
                 .then(function (agilePoints) {
                     var badges = [];
 
-                    if (agilePoints.consumed !== '') {
-                        var consumedColor = 'orange';
-                        if(agilePoints.consumed !== '?') {
-                            if (agilePoints.consumed < agilePoints.estimated) {
-                                consumedColor = 'green';
-                            } else if (agilePoints.consumed > agilePoints.estimated) {
-                                consumedColor = 'red';
-                            }
-                        }
+                    var hasConsumedPoints  = agilePoints.consumed !== '';
+                    var hasEstimatedPoints = agilePoints.estimated !== '';
+
+                    if (hasEstimatedPoints && !hasConsumedPoints) {
                         badges.push({
-                            icon : BLACK_ROCKET_ICON,
-                            text : agilePoints.consumed,
-                            color: consumedColor
+                            icon : BLACK_ROCKET_ICON, //Single card icon
+                            text : agilePoints.estimated,
+                            color: 'sky'
                         });
                     }
 
-                    if (agilePoints.estimated !== '') {
+                    if (hasEstimatedPoints && hasConsumedPoints) {
+                        var consumedColor = 'orange';
+                        if (agilePoints.consumed < agilePoints.estimated) {
+                            consumedColor = 'green';
+                        } else if (agilePoints.consumed > agilePoints.estimated) {
+                            consumedColor = 'red';
+                        }
                         badges.push({
-                            icon : BLACK_ROCKET_ICON,
-                            text : agilePoints.estimated,
-                            color: 'orange'
+                            icon : BLACK_ROCKET_ICON, //Both cards icon
+                            text : agilePoints.consumed+' / '+agilePoints.estimated,
+                            color: consumedColor
                         });
                     }
 
