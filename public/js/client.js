@@ -29,6 +29,9 @@ TrelloPowerUp.initialize({
         return t.get('card', 'shared', 'agilePoints')
                 .then(function (agilePoints) {
                     var badges = [];
+                    if (typeof agilePoints === typeof undefined) {
+                        return badges;
+                    }
 
                     var hasConsumedPoints  = agilePoints.consumed !== '';
                     var hasEstimatedPoints = agilePoints.estimated !== '';

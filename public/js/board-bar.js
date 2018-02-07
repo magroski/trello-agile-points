@@ -6,16 +6,16 @@ t.render(function () {
     return t.lists('all')
             .then(function (lists) {
                 var listsSummary = [];
-                for (var i = 0; i < lists.length; i++) {
-                    var currentList = lists[i];
+                for (var listsIndex = 0; listsIndex < lists.length; listsIndex++) {
+                    var currentList = lists[listsIndex];
                     var listName    = currentList.name;
                     var listObject  = {
                         name     : listName,
                         estimated: 0,
                         consumed : 0
                     };
-                    for (var j = 0; j < currentList.cards.length; j++) {
-                        var currentCard = currentList.cards[j];
+                    for (var cardsIndex = 0; cardsIndex < currentList.cards.length; cardsIndex++) {
+                        var currentCard = currentList.cards[cardsIndex];
                         t.get(currentCard.id, 'shared', 'agilePoints')
                          .then(function (listObject, agilePoints) {
                              if (typeof agilePoints === typeof undefined) {
@@ -32,7 +32,21 @@ t.render(function () {
                     }
                     listsSummary.push(listObject);
                 }
-                console.log(JSON.stringify(lists, null, 2));
                 console.log(listsSummary);
+                for (var summaryIndex = 0; summaryIndex < listsSummary.length; summaryIndex++) {
+                    var currentSummary = listsSummary[summaryIndex];
+                    var listsDiv       = document.getElementById('agile-points-lists');
+
+                    var newList       = document.createElement('div');
+                    newList.className = 'agile-list-summary';
+                    var newSpan       = document.createElement('span');
+                    newSpan.appendChild(document.createTextNode(currentSummary.name));
+                    newList.appendChild(newSpan);
+                    var newCounter = document.createElement('span');
+                    newCounter.appendChild(document.createTextNode(currentSummary.consumed + '/' + currentSummary.estimated));
+                    newList.appendChild(newCounter);
+
+                    listsDiv.appendChild(newList);
+                }
             });
 });
