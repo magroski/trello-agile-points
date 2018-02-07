@@ -7,8 +7,7 @@ var BLACK_ROCKET_ICON = 'https://cdn.glitch.com/1b42d7fe-bda8-4af8-a6c8-eff0cea9
 var calculateSprintPoints = function (t, options) {
     return t.boardBar({
         height: 300,
-        title: 'Sprint points',
-
+        title : 'Sprint points',
         url   : './board-bar.html'
     });
 };
