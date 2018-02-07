@@ -1,8 +1,8 @@
 var express = require('express');
-var cors = require('cors');
-var app = express();
+var cors    = require('cors');
+var app     = express();
 
-app.use(cors({ origin: '*' }));
+app.use(cors({origin: '*'}));
 app.use(express.static('public'));
 app.get("*", function (request, response) {
     response.sendFile(__dirname + '/views/index.html');
