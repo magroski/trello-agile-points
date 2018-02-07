@@ -45,7 +45,7 @@ TrelloPowerUp.initialize({
                     }
 
                     if (hasEstimatedPoints && hasConsumedPoints) {
-                        var consumedColor = 'orange';
+                        var consumedColor = 'lime';
                         if (agilePoints.consumed < agilePoints.estimated) {
                             consumedColor = 'green';
                         } else if (agilePoints.consumed > agilePoints.estimated) {
