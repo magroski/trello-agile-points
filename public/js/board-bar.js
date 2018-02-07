@@ -18,11 +18,14 @@ t.render(function () {
                         var currentCard = currentList.cards[j];
                         t.get(currentCard.id, 'shared', 'agilePoints')
                          .then(function (listObject, agilePoints) {
+                             if (typeof agilePoints === typeof undefined) {
+                                 return true;
+                             }
                              if (!isNaN(agilePoints.consumed)) {
-                                 listObject.consumed += agilePoints.consumed;
+                                 listObject.consumed += agilePoints.consumed * 1;
                              }
                              if (!isNaN(agilePoints.estimated)) {
-                                 listObject.estimated += agilePoints.estimated;
+                                 listObject.estimated += agilePoints.estimated * 1;
                              }
                              return true;
                          }.bind(null, listObject));
