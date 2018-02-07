@@ -5,35 +5,72 @@ var t = TrelloPowerUp.iframe();
 t.render(function () {
     return t.lists('all')
             .then(function (lists) {
-                var listsSummary = [];
+                var listPromises = [];
                 for (var listsIndex = 0; listsIndex < lists.length; listsIndex++) {
                     var currentList = lists[listsIndex];
-                    var listName    = currentList.name;
-                    var listObject  = {
-                        name     : listName,
-                        estimated: 0,
-                        consumed : 0
-                    };
-                    for (var cardsIndex = 0; cardsIndex < currentList.cards.length; cardsIndex++) {
+
+                    var cardPromises = [];
+                    for (cardsIndex in currentList.cards) {
                         var currentCard = currentList.cards[cardsIndex];
-                        t.get(currentCard.id, 'shared', 'agilePoints')
-                         .then(function (listObject, agilePoints) {
-                             if (typeof agilePoints === typeof undefined) {
-                                 return true;
-                             }
-                             if (!isNaN(agilePoints.consumed)) {
-                                 listObject.consumed += agilePoints.consumed * 1;
-                             }
-                             if (!isNaN(agilePoints.estimated)) {
-                                 listObject.estimated += agilePoints.estimated * 1;
-                             }
-                             return true;
-                         }.bind(null, listObject));
+                        cardPromises.push(t.get(currentCard.id, 'shared', 'agilePoints'));
                     }
-                    listsSummary.push(listObject);
+
+                    listPromises.push(Promise.all(cardPromises));
                 }
-                console.log(listsSummary);
-                return listsSummary;
+                var listsSummary = [];
+                return Promise.all(listPromises).then(
+                    function (listsSummary, lists) {
+                        console.log(lists);
+                        for (listIndex in lists) {
+                            var list = lists[listsIndex];
+                            listsSummary.push({
+                                name     : list.name,
+                                estimated: list.estimated,
+                                consumed : list.consumed
+                            });
+                        }
+                    }.bind(null, listsSummary)
+                );
+
+                //var listsSummary = [];
+                //
+                //for (var listsIndex = 0; listsIndex < lists.length; listsIndex++) {
+                //    var currentList = lists[listsIndex];
+                //    var listName    = currentList.name;
+                //    var listObject  = {
+                //        name     : listName,
+                //        estimated: 0,
+                //        consumed : 0
+                //    };
+                //
+                //    var cardPromises = [];
+                //    for (var cardsIndex = 0; cardsIndex < currentList.cards.length; cardsIndex++) {
+                //        var currentCard = currentList.cards[cardsIndex];
+                //        cardPromises.push(
+                //            t.get(currentCard.id, 'shared', 'agilePoints')
+                //             .then(function (listObject, agilePoints) {
+                //                 if (typeof agilePoints === typeof undefined) {
+                //                     return true;
+                //                 }
+                //                 if (!isNaN(agilePoints.consumed)) {
+                //                     listObject.consumed += agilePoints.consumed * 1;
+                //                 }
+                //                 if (!isNaN(agilePoints.estimated)) {
+                //                     listObject.estimated += agilePoints.estimated * 1;
+                //                 }
+                //                 return true;
+                //             })
+                //        );
+                //    }
+                //    Promise.all(cardPromises).then(
+                //        function (values) {
+                //
+                //        }
+                //    );
+                //    listsSummary.push(listObject);
+                //}
+                //console.log(listsSummary);
+                //return listsSummary;
             })
             .then(function (listsSummary) {
                 console.log(listsSummary);
