@@ -14,8 +14,8 @@ var inputIsValid = function (value) {
 window.pointsForm.addEventListener('submit', function (event) {
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
-    var estimatedValue = inputIsValid(window.estimated.value) ? window.estimatedValue : '';
-    var consumedValue  = inputIsValid(window.consumed.value) ? window.consumedValue : '';
+    var estimatedValue = inputIsValid(window.estimated.value) ? window.estimated.value : '';
+    var consumedValue  = inputIsValid(window.consumed.value) ? window.consumed.value : '';
     return t.set('card', 'shared', 'agilePoints', {estimated: estimatedValue, consumed: consumedValue})
             .then(function () {
                 t.closePopup();
@@ -31,5 +31,4 @@ t.render(function () {
             .then(function () {
                 t.sizeTo('#pointsForm').done();
             });
-
 });
