@@ -2,7 +2,8 @@
 
 var Promise = TrelloPowerUp.Promise;
 
-var BLACK_ROCKET_ICON = './i/card.svg';
+var DARK_CARD_ICON = './i/card-dark.svg';
+var CARD_ICON = './i/card.svg';
 
 var calculateSprintPoints = function (t, options) {
     return t.boardBar({
@@ -15,7 +16,7 @@ var calculateSprintPoints = function (t, options) {
 TrelloPowerUp.initialize({
     'card-buttons' : function (t, options) {
         return [{
-            icon    : BLACK_ROCKET_ICON,
+            icon    : DARK_CARD_ICON,
             text    : 'Set task points',
             callback: function (t) {
                 return t.popup({
@@ -38,7 +39,7 @@ TrelloPowerUp.initialize({
 
                     if (hasEstimatedPoints && !hasConsumedPoints) {
                         badges.push({
-                            icon : BLACK_ROCKET_ICON, //Single card icon
+                            icon : CARD_ICON, //Single card icon
                             text : agilePoints.estimated,
                             color: 'yellow'
                         });
@@ -52,7 +53,7 @@ TrelloPowerUp.initialize({
                             consumedColor = 'red';
                         }
                         badges.push({
-                            icon : BLACK_ROCKET_ICON, //Both cards icon
+                            icon : CARD_ICON, //Both cards icon
                             text : agilePoints.consumed + ' / ' + agilePoints.estimated,
                             color: consumedColor
                         });
@@ -63,7 +64,7 @@ TrelloPowerUp.initialize({
     },
     'board-buttons': function (t, options) {
         return [{
-            icon    : BLACK_ROCKET_ICON,
+            icon    : CARD_ICON,
             text    : 'Sprint points',
             callback: calculateSprintPoints
         }];
