@@ -2,12 +2,20 @@
 
 var t = TrelloPowerUp.iframe();
 
+var inputIsValid = function (value) {
+    if (value === '?') {
+        return true;
+    }
+
+    return typeof (value * 1) === 'number';
+};
+
 // Elements with IDs are available as properties of `window`.
 window.pointsForm.addEventListener('submit', function (event) {
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
-    var estimatedValue = (window.estimated.value === '?' || !isNaN(typeof window.estimated.value)) ? window.estimatedValue : '';
-    var consumedValue  = (window.consumed.value === '?' || !isNaN(window.consumed.value)) ? window.consumedValue : '';
+    var estimatedValue = isValid(window.estimated.value) ? window.estimatedValue : '';
+    var consumedValue  = isValid(window.consumed.value) ? window.consumedValue : '';
     return t.set('card', 'shared', 'agilePoints', {estimated: estimatedValue, consumed: consumedValue})
             .then(function () {
                 t.closePopup();
