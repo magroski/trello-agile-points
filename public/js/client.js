@@ -40,14 +40,14 @@ TrelloPowerUp.initialize({
                         badges.push({
                             icon : BLACK_ROCKET_ICON, //Single card icon
                             text : agilePoints.estimated,
-                            color: 'sky'
+                            color: 'yellow'
                         });
                     }
 
                     if (hasEstimatedPoints && hasConsumedPoints) {
-                        var consumedColor = 'lime';
+                        var consumedColor = 'green';
                         if (agilePoints.consumed < agilePoints.estimated) {
-                            consumedColor = 'green';
+                            consumedColor = 'sky';
                         } else if (agilePoints.consumed > agilePoints.estimated) {
                             consumedColor = 'red';
                         }
