@@ -6,7 +6,9 @@ var BLACK_ROCKET_ICON = 'https://cdn.glitch.com/1b42d7fe-bda8-4af8-a6c8-eff0cea9
 
 var calculateSprintPoints = function (t, options) {
     return t.boardBar({
-        height: 200,
+        height: 300,
+        title: 'Sprint points',
+
         url   : './board-bar.html'
     });
 };
@@ -49,7 +51,7 @@ TrelloPowerUp.initialize({
                         }
                         badges.push({
                             icon : BLACK_ROCKET_ICON, //Both cards icon
-                            text : agilePoints.consumed+' / '+agilePoints.estimated,
+                            text : agilePoints.consumed + ' / ' + agilePoints.estimated,
                             color: consumedColor
                         });
                     }
