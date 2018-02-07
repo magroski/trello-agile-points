@@ -38,7 +38,6 @@ t.render(function () {
             .then(function (listsSummary) {
                 console.log(listsSummary);
                 for (currentSummary in listsSummary) {
-                    var currentSummary = listsSummary[summaryIndex];
                     console.log(currentSummary);
                     console.log(listsSummary);
                     var listsDiv = document.getElementById('agile-points-lists');
