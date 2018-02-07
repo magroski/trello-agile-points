@@ -32,18 +32,11 @@ t.render(function () {
                         }.bind(null, currentList.name)
                     ));
                 }
-                return Promise.all(listPromises).then(
-                    function (lists) {
-                        console.log(lists);
-                    }
-                );
+                return Promise.all(listPromises);
             })
             .then(function (listsSummary) {
-                console.log(listsSummary);
                 for (currentIndex in listsSummary) {
                     var currentSummary = listsSummary[currentIndex];
-                    console.log(currentSummary);
-                    console.log(listsSummary);
                     var listsDiv = document.getElementById('agile-points-lists');
 
                     var newList       = document.createElement('div');
