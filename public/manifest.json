@@ -2,7 +2,7 @@
   "name": "Agile Points",
   "details": "Add estimated and consumed points to your cards! Also shows consumed and estimated by list.",
   "icon": {
-    "url": "./i/icon.svg"
+    "url": "./i/icon.png"
   },
   "author": "Lucas Magroski",
   "capabilities": [
