@@ -52,7 +52,7 @@ t.render(function () {
                     newList.appendChild(cardTitle);
 
                     var newImage         = document.createElement('img');
-                    newImage.src         = './i/white-card.svg';
+                    newImage.src         = './i/dark-card.svg';
                     newImage.style.width = (width / 2) + '%';
                     newImage.style.cssFloat = 'left';
                     newList.appendChild(newImage);
