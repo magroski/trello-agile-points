@@ -51,26 +51,20 @@ t.render(function () {
                     cardTitle.appendChild(document.createTextNode(currentSummary.name));
                     newList.appendChild(cardTitle);
 
-                    var newImage         = document.createElement('img');
-                    newImage.src         = './i/white-card.svg';
-                    newImage.style.width = (width / 2) + '%';
+                    var newImage            = document.createElement('img');
+                    newImage.src            = './i/white-card.svg';
+                    newImage.style.width    = (width / 2) + '%';
                     newImage.style.cssFloat = 'left';
                     newList.appendChild(newImage);
 
-                    var newCounter            = document.createElement('div');
-                    var newCounterTitle       = document.createElement('span');
-                    newCounterTitle.className = 'agile-counter-title';
-                    newCounterTitle.appendChild(document.createTextNode('Consumed: '));
-                    newCounter.appendChild(newCounterTitle);
-                    newCounter.appendChild(document.createTextNode(currentSummary.consumed));
-                    newList.appendChild(newCounter);
+                    var newSubtitleDiv       = document.createElement('div');
+                    newSubtitleDiv.className = 'agile-counter-title';
+                    newSubtitleDiv.appendChild(document.createTextNode('Consumed'));
+                    newList.appendChild(newSubtitleDiv);
 
-                    var newCounter            = document.createElement('div');
-                    var newCounterTitle       = document.createElement('span');
-                    newCounterTitle.className = 'agile-counter-title';
-                    newCounterTitle.appendChild(document.createTextNode('Estimated: '));
-                    newCounter.appendChild(newCounterTitle);
-                    newCounter.appendChild(document.createTextNode(currentSummary.estimated));
+                    var newCounter       = document.createElement('div');
+                    newCounter.className = 'agile-counter-title';
+                    newCounter.appendChild(document.createTextNode(currentSummary.consumed + ' of ' + currentSummary.estimated));
                     newList.appendChild(newCounter);
 
                     listsDiv.appendChild(newList);
