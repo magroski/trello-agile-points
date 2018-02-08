@@ -55,5 +55,5 @@ window.settingsForm.addEventListener('submit', function (event) {
 });
 
 t.render(function () {
-    return t.sizeTo('#settingsForm').done();
+    return t.sizeTo('#settingsBody').done();
 });

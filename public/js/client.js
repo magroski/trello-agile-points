@@ -3,7 +3,7 @@
 var Promise = TrelloPowerUp.Promise;
 
 var DARK_CARD_ICON = './i/dark-card.svg';
-var CARD_ICON = './i/white-card.svg';
+var CARD_ICON      = './i/white-card.svg';
 
 var calculateSprintPoints = function (t, options) {
     return t.boardBar({
@@ -69,10 +69,11 @@ TrelloPowerUp.initialize({
             callback: calculateSprintPoints
         }];
     },
-    'show-settings': function(t, options){
+    'show-settings': function (t, options) {
         return t.popup({
-            title: 'Agile points settings',
-            url: './settings.html'
+            title : 'Agile points settings',
+            url   : './settings.html',
+            height: 200
         });
     }
 });
