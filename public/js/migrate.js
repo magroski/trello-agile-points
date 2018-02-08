@@ -17,6 +17,7 @@ window.settingsForm.addEventListener('submit', function (event) {
 
     return t.cards('all')
             .then(function (cards) {
+                var cardPromises = [];
                 for (cardIndex in cards) {
                     var currentCard    = cards[cardIndex];
                     var estimatedValue = '';
@@ -41,8 +42,9 @@ window.settingsForm.addEventListener('submit', function (event) {
                     }
 
                     console.log({estimated: estimatedValue, consumed: consumedValue});
-                    t.set(currentCard.id, 'shared', 'agilePoints', {estimated: estimatedValue, consumed: consumedValue}).done();
+                    cardPromises.push(t.set(currentCard.id, 'shared', 'agilePoints', {estimated: estimatedValue, consumed: consumedValue}));
                 }
+                return Promise.all(cardPromises);
             })
             .then(function () {
                 t.closePopup();
