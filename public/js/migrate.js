@@ -23,7 +23,7 @@ window.settingsForm.addEventListener('submit', function (event) {
                     var estimatedValue = '';
                     var consumedValue  = '';
 
-                    var matches = /\(([^)]+)\)/g.match(currentCard.name);
+                    var matches = currentCard.name.match(/\(([^)]+)\)/g);
                     for (matchIndex in matches) {
                         var currentMatch = matches[matchIndex];
                         if (inputIsValid(currentMatch)) {
@@ -31,7 +31,7 @@ window.settingsForm.addEventListener('submit', function (event) {
                         }
                     }
 
-                    var matches = /\[([^\]]+)\]/g.match(currentCard.name);
+                    var matches = currentCard.name.match(/\[([^\]]+)\]/g);
                     for (matchIndex in matches) {
                         var currentMatch = matches[matchIndex];
                         if (!isNaN(currentMatch)) {
