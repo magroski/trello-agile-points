@@ -21,6 +21,9 @@ t.render(function () {
                             var totalConsumed  = 0;
                             for (cardIndex in cards) {
                                 var card = cards[cardIndex];
+                                if (typeof  card === typeof undefined) {
+                                    continue;
+                                }
                                 if (!isNaN(card.estimated)) {
                                     totalEstimated += card.estimated * 1;
                                 }
