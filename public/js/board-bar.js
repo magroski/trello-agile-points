@@ -56,12 +56,20 @@ t.render(function () {
                     newImage.style.width = (width / 2) + '%';
                     newList.appendChild(newImage);
 
-                    var newCounter = document.createElement('span');
-                    newCounter.appendChild(document.createTextNode('Consumed: ' + currentSummary.consumed));
+                    var newCounter            = document.createElement('div');
+                    var newCounterTitle       = document.createElement('span');
+                    newCounterTitle.className = 'agile-counter-title';
+                    newCounterTitle.appendChild(document.createTextNode('Consumed: '));
+                    newCounter.appendChild(newCounterTitle);
+                    newCounter.appendChild(document.createTextNode(currentSummary.consumed));
                     newList.appendChild(newCounter);
 
-                    var newCounter = document.createElement('span');
-                    newCounter.appendChild(document.createTextNode('Estimated: ' + currentSummary.estimated));
+                    var newCounter            = document.createElement('div');
+                    var newCounterTitle       = document.createElement('span');
+                    newCounterTitle.className = 'agile-counter-title';
+                    newCounterTitle.appendChild(document.createTextNode('Estimated: '));
+                    newCounter.appendChild(newCounterTitle);
+                    newCounter.appendChild(document.createTextNode(currentSummary.estimated));
                     newList.appendChild(newCounter);
 
                     listsDiv.appendChild(newList);
