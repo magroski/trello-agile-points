@@ -27,6 +27,7 @@ window.settingsForm.addEventListener('submit', function (event) {
                         var currentMatch = matches[matchIndex];
                         if (inputIsValid(currentMatch)) {
                             estimatedValue = currentMatch;
+                            break;
                         }
                     }
 
@@ -35,10 +36,11 @@ window.settingsForm.addEventListener('submit', function (event) {
                         var currentMatch = matches[matchIndex];
                         if (!isNaN(currentMatch)) {
                             consumedValue = currentMatch;
+                            break;
                         }
                     }
 
-                    t.set(currentCard.id, 'shared', {estimated: estimatedValue, consumed: consumedValue});
+                    t.set(currentCard.id, 'shared', 'agilePoints', {estimated: estimatedValue, consumed: consumedValue});
                 }
             })
             .then(function () {
