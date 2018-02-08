@@ -51,8 +51,9 @@ t.render(function () {
                     cardTitle.appendChild(document.createTextNode(currentSummary.name));
                     newList.appendChild(cardTitle);
 
-                    var newImage = document.createElement('img');
-                    newImage.src = './i/white-card.svg';
+                    var newImage   = document.createElement('img');
+                    newImage.src   = './i/white-card.svg';
+                    newImage.width = (width / 3) + '%';
                     newList.appendChild(newImage);
 
                     var newCounter = document.createElement('span');
