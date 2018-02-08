@@ -53,7 +53,7 @@ t.render(function () {
 
                     var newImage   = document.createElement('img');
                     newImage.src   = './i/white-card.svg';
-                    newImage.width = (width / 3) + '%';
+                    newImage.style.width = (width / 3) + '%';
                     newList.appendChild(newImage);
 
                     var newCounter = document.createElement('span');
