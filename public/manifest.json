@@ -9,7 +9,8 @@
     "callback",
     "card-buttons",
     "card-badges",
-    "board-buttons"
+    "board-buttons",
+    "show-settings"
   ],
   "connectors": {
     "iframe": {

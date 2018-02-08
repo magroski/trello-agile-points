@@ -68,5 +68,11 @@ TrelloPowerUp.initialize({
             text    : 'Sprint points',
             callback: calculateSprintPoints
         }];
+    },
+    'show-settings': function(t, options){
+        return t.popup({
+            title: 'Agile points settings',
+            url: './settings.html'
+        });
     }
 });
