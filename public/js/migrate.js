@@ -23,25 +23,22 @@ window.settingsForm.addEventListener('submit', function (event) {
                     var estimatedValue = '';
                     var consumedValue  = '';
 
-                    var matches = /\(([^)]+)\)/.exec(currentCard.name);
+                    var matches = /\(([^)]+)\)/g.exec(currentCard.name);
                     for (matchIndex in matches) {
                         var currentMatch = matches[matchIndex];
                         if (inputIsValid(currentMatch)) {
                             estimatedValue = currentMatch;
-                            break;
                         }
                     }
 
-                    var matches = /\[([^\]]+)\]/.exec(currentCard.name);
+                    var matches = /\[([^\]]+)\]/g.exec(currentCard.name);
                     for (matchIndex in matches) {
                         var currentMatch = matches[matchIndex];
                         if (!isNaN(currentMatch)) {
                             consumedValue = currentMatch;
-                            break;
                         }
                     }
 
-                    console.log({estimated: estimatedValue, consumed: consumedValue});
                     cardPromises.push(t.set(currentCard.id, 'shared', 'agilePoints', {estimated: estimatedValue, consumed: consumedValue}));
                 }
                 return Promise.all(cardPromises);
