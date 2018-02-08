@@ -51,13 +51,17 @@ t.render(function () {
                     cardTitle.appendChild(document.createTextNode(currentSummary.name));
                     newList.appendChild(cardTitle);
 
-                    var newImage   = document.createElement('img');
-                    newImage.src   = './i/white-card.svg';
-                    newImage.style.width = (width / 3) + '%';
+                    var newImage         = document.createElement('img');
+                    newImage.src         = './i/white-card.svg';
+                    newImage.style.width = (width / 2) + '%';
                     newList.appendChild(newImage);
 
                     var newCounter = document.createElement('span');
-                    newCounter.appendChild(document.createTextNode(currentSummary.consumed + '/' + currentSummary.estimated));
+                    newCounter.appendChild(document.createTextNode('Consumed: ' + currentSummary.consumed));
+                    newList.appendChild(newCounter);
+
+                    var newCounter = document.createElement('span');
+                    newCounter.appendChild(document.createTextNode('Estimated: ' + currentSummary.estimated));
                     newList.appendChild(newCounter);
 
                     listsDiv.appendChild(newList);
