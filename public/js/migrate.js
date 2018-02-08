@@ -40,6 +40,7 @@ window.settingsForm.addEventListener('submit', function (event) {
                         }
                     }
 
+                    console.log({estimated: estimatedValue, consumed: consumedValue});
                     t.set(currentCard.id, 'shared', 'agilePoints', {estimated: estimatedValue, consumed: consumedValue}).done();
                 }
             })
