@@ -15,7 +15,7 @@ window.settingsForm.addEventListener('submit', function (event) {
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
 
-    return t.cards('id', 'name')
+    return t.cards('all')
             .then(function (cards) {
                 for (cardIndex in cards) {
                     var currentCard    = cards[cardIndex];
