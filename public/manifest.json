@@ -1,8 +1,8 @@
 {
   "name": "Agile Points",
-  "details": "A Power-Up add Estimated/Consumed points to cards",
+  "details": "Add estimated and consumed points to your cards! Also shows consumed and estimated by list.",
   "icon": {
-    "url": "https://cdn.glitch.com/1b42d7fe-bda8-4af8-a6c8-eff0cea9e08a%2Fstartup.png?1494946700268"
+    "url": "./i/icon.svg"
   },
   "author": "Lucas Magroski",
   "capabilities": [
