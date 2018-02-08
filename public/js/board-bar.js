@@ -54,6 +54,7 @@ t.render(function () {
                     var newImage         = document.createElement('img');
                     newImage.src         = './i/white-card.svg';
                     newImage.style.width = (width / 2) + '%';
+                    newImage.style.cssFloat = 'left';
                     newList.appendChild(newImage);
 
                     var newCounter            = document.createElement('div');
