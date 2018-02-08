@@ -23,20 +23,26 @@ window.settingsForm.addEventListener('submit', function (event) {
                     var estimatedValue = '';
                     var consumedValue  = '';
 
-                    var matches = currentCard.name.match(/\(([^)]+)\)/g);
-                    for (matchIndex in matches) {
-                        var currentMatch = matches[matchIndex];
+                    var regex = /\(([^)]+)\)/g;
+                    var match = regex.exec(currentCard.name);
+                    while (match != null) {
+                        var currentMatch = match[1];
                         if (inputIsValid(currentMatch)) {
                             estimatedValue = currentMatch;
+                            break;
                         }
+                        match = regex.exec(currentCard.name);
                     }
 
-                    var matches = currentCard.name.match(/\[([^\]]+)\]/g);
-                    for (matchIndex in matches) {
-                        var currentMatch = matches[matchIndex];
+                    var regex = /\[([^\]]+)\]/g;
+                    var match = regex.exec(currentCard.name);
+                    while (match != null) {
+                        var currentMatch = match[1];
                         if (!isNaN(currentMatch)) {
                             consumedValue = currentMatch;
+                            break;
                         }
+                        match = regex.exec(currentCard.name);
                     }
 
                     cardPromises.push(t.set(currentCard.id, 'shared', 'agilePoints', {estimated: estimatedValue, consumed: consumedValue}));
