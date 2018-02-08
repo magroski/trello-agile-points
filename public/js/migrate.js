@@ -18,7 +18,7 @@ window.settingsForm.addEventListener('submit', function (event) {
     return t.cards('id', 'name')
             .then(function (cards) {
                 for (cardIndex in cards) {
-                    var currentCard    = cardList[cardIndex];
+                    var currentCard    = cards[cardIndex];
                     var estimatedValue = '';
                     var consumedValue  = '';
 
