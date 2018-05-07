@@ -70,6 +70,7 @@ TrelloPowerUp.initialize({
 
                     if (hasEstimatedPoints && !hasConsumedPoints) {
                         badges.push({
+                            title: 'Poker (Estimated)',
                             icon : CARD_ICON, //Single card icon
                             text : agilePoints.estimated,
                             color: 'purple'
@@ -79,6 +80,7 @@ TrelloPowerUp.initialize({
                     if (hasEstimatedPoints && hasConsumedPoints) {
                         var consumedColor = 'sky';
                         badges.push({
+                            title: 'Poker (C/E)',
                             icon : CARD_ICON, //Both cards icon
                             text : agilePoints.consumed + ' / ' + agilePoints.estimated,
                             color: consumedColor
