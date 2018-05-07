@@ -70,7 +70,7 @@ TrelloPowerUp.initialize({
 
                     if (hasEstimatedPoints && !hasConsumedPoints) {
                         badges.push({
-                            title: 'Poker',
+                            title: 'Scrum',
                             text : agilePoints.estimated + ' estimated',
                             color: 'purple'
                         });
@@ -79,7 +79,7 @@ TrelloPowerUp.initialize({
                     if (hasEstimatedPoints && hasConsumedPoints) {
                         var consumedColor = 'sky';
                         badges.push({
-                            title: 'Poker',
+                            title: 'Scrum',
                             text : agilePoints.consumed + ' of ' + agilePoints.estimated,
                             color: consumedColor
                         });
