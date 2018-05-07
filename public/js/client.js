@@ -70,8 +70,8 @@ TrelloPowerUp.initialize({
 
                     if (hasEstimatedPoints && !hasConsumedPoints) {
                         badges.push({
-                            title: 'Poker (Estimated)',
-                            text : agilePoints.estimated,
+                            title: 'Poker',
+                            text : agilePoints.estimated + ' estimated',
                             color: 'purple'
                         });
                     }
@@ -79,8 +79,8 @@ TrelloPowerUp.initialize({
                     if (hasEstimatedPoints && hasConsumedPoints) {
                         var consumedColor = 'sky';
                         badges.push({
-                            title: 'Poker (C/E)',
-                            text : agilePoints.consumed + ' / ' + agilePoints.estimated,
+                            title: 'Poker',
+                            text : agilePoints.consumed + ' of ' + agilePoints.estimated,
                             color: consumedColor
                         });
                     }
