@@ -57,6 +57,37 @@ TrelloPowerUp.initialize({
                     return badges;
                 });
     },
+    'card-detail-badges': function (t, options) {
+        return t.get('card', 'shared', 'agilePoints')
+                .then(function (agilePoints) {
+                    var badges = [];
+                    if (typeof agilePoints === typeof undefined) {
+                        return badges;
+                    }
+
+                    var hasConsumedPoints  = agilePoints.consumed !== '';
+                    var hasEstimatedPoints = agilePoints.estimated !== '';
+
+                    if (hasEstimatedPoints && !hasConsumedPoints) {
+                        badges.push({
+                            icon : CARD_ICON, //Single card icon
+                            text : agilePoints.estimated,
+                            color: 'purple'
+                        });
+                    }
+
+                    if (hasEstimatedPoints && hasConsumedPoints) {
+                        var consumedColor = 'sky';
+                        badges.push({
+                            icon : CARD_ICON, //Both cards icon
+                            text : agilePoints.consumed + ' / ' + agilePoints.estimated,
+                            color: consumedColor
+                        });
+                    }
+
+                    return badges;
+                });
+    },
     'board-buttons': function (t, options) {
         return [{
             icon    : CARD_ICON,

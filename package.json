@@ -1,6 +1,6 @@
 {
   "name": "trello-agile-points",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Power-Up to add Planed/Spent points to cards",
   "main": "server.js",
   "scripts": {
@@ -23,4 +23,3 @@
     "express"
   ]
 }
-  
